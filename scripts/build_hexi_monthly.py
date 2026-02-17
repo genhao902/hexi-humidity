@@ -79,9 +79,10 @@ for city, info in CITIES.items():
 
 df = pd.concat(all_monthly, ignore_index=True)
 
-df.to_csv("data/hexi_monthly_clean.csv")
+df.to_csv("hexi_monthly_clean.csv")
 print("Saved hexi_monthly_clean.csv")
 
 print(df)
 print(df.head())
+
 print(df.tail())
