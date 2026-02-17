@@ -1,4 +1,4 @@
-# 🌦️ Hexi Region Humidity Modeling & Prediction
+# 🌦️ Hexi Corridor Humidity Modeling & Prediction
 
 This project focuses on analyzing historical meteorological data from the Hexi region and predicting air humidity trends for the year 2026 using Machine Learning models. The workflow covers data cleaning, Exploratory Data Analysis (EDA), model training/comparison, and future trend forecasting.
 
@@ -60,3 +60,4 @@ python analysis/pred_2026.py
 - **`models/`**: Core machine learning training and performance comparison logic.
 - **`data/`**: Central repository for datasets, cleaned data, generated charts, and results.
 - **`scripts/`**: Utility scripts for initial data construction and preprocessing.
+
