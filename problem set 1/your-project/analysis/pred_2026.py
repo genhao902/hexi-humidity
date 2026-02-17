@@ -19,7 +19,7 @@ DATA_DIR = os.path.join(BASE_DIR, "data")
 CLEAN_DATA_PATH = os.path.join(DATA_DIR, "hexi_monthly_clean.csv")
 
 def run_prediction_sgd():
-    print("🚀 Starting 2026 Humidity Prediction using SGD Model...")
+    print(" Starting 2026 Humidity Prediction using SGD Model...")
     
     # 2. Load and Prepare Data
     if not os.path.exists(CLEAN_DATA_PATH):
@@ -38,10 +38,10 @@ def run_prediction_sgd():
     
     sgd_model = SGDRegressor(max_iter=5000, tol=1e-3, random_state=42)
     sgd_model.fit(X_scaled, y)
-    print("✅ SGD (Stochastic Gradient Descent) model trained successfully.")
+    print(" SGD (Stochastic Gradient Descent) model trained successfully.")
 
     # 4. Generate 2026 Scenarios (Monthly averages per city)
-    print("📅 Generating 2026 weather scenarios...")
+    print(" Generating 2026 weather scenarios...")
     cities = df["city"].unique()
     rows_2026 = []
 
@@ -64,7 +64,7 @@ def run_prediction_sgd():
     # Save Results
     results_path = os.path.join(DATA_DIR, "prediction_2026_sgd_results.csv")
     df_2026.to_csv(results_path, index=False)
-    print(f"💾 SGD Results saved to: {results_path}")
+    print(f" SGD Results saved to: {results_path}")
 
     # 6. Visualization: 2026 Trends
     plt.figure(figsize=(10, 6))
@@ -80,15 +80,16 @@ def run_prediction_sgd():
     trend_img = os.path.join(DATA_DIR, "prediction_2026_sgd_trends.png")
     plt.savefig(trend_img, dpi=300, bbox_inches='tight')
     plt.show()
-    print(f"📊 Trend visualization saved: {trend_img}")
+    print(f" Trend visualization saved: {trend_img}")
 
     # 7. Model Insights
-    print("\n--- 💡 SGD Model Insights ---")
+    print("\n---  SGD Model Insights ---")
     weights = pd.Series(sgd_model.coef_, index=features).sort_values(ascending=False)
     print("Feature Weights (Normalized):")
     for feat, weight in weights.items():
-        print(f"🔹 {feat:<20}: {weight:.4f}")
+        print(f" {feat:<20}: {weight:.4f}")
     print("\nNote: Positive weight means the feature increases humidity; negative means it decreases it.")
 
 if __name__ == "__main__":
     run_prediction_sgd()
+
